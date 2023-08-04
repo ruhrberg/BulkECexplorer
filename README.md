@@ -2,7 +2,8 @@
 Welcome to the BulkECexplorer github. Here you can find the code related to the app https://ruhrberglab.shinyapps.io/BulkECexplorer/ described in the publication **BulkECexplorer: an online resource to survey endothelial bulk transcriptomes and predict functional transcription**. Several files required by the scripts can be found here too. These files are also provided as supplementary files in the publication.  
 The .tab files containing the expression data for the samples that the BulkECexplorer uses are too large to be uploaded to github, but have been provided as supplementary files in the publication.  
 ## scripts folder
-This folder contains three scripts:  
+This folder contains four scripts:
+-**app.R**: the code used by the app to run.
 -**BulkECexplorer_Bulk_database_generation.R**: takes sample expression files and creates a database with expression data and the gene classifications carried out by the 0TPM and zTPM methods.  
 -**BulkECexplorer_GMM_EM_database_generation.R**: takes sample expression files and creates a database with expression data and the gene expression classifications carried out by the GMM_EM method.  
 -**ConfusionMatrix_FalsePositiveRateAnalysis.R**: carries out a confusion matrix analysis given an input gene list with actual positive and negative markers, as well as an analysis of false positive rates.  
