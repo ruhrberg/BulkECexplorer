@@ -1,0 +1,6 @@
+align_master.csv - align_rate information output by HISAT2 for all samples
+gene_list_all_runs.csv - gene lists with actual positive/negative markers used in the confusion matrix and false positive rate analyses
+HUVEC_proteome.csv - HUVEC proteome data from https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD009687
+run_files/ - contains folders named as the 5 cell types in the BulkECexplorer. Each cell type folder contains .tab files with the expression data for all samples
+genome_annotation_files/ - raw and processed genome annotation files from gencode used to obtain lists of protein-coding genes
+
