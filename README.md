@@ -1,5 +1,5 @@
 # BulkECexplorer
-Welcome to the BulkECexplorer github. Here you can find the code related to the publication **BulkECexplorer: an online resource to survey endothelial bulk transcriptomes and predict functional transcription**. Several files required by the scripts can be found here too. These files are also provided as supplementary files in the publication.  
+Welcome to the BulkECexplorer github. Here you can find the code related to the app https://ruhrberglab.shinyapps.io/BulkECexplorer/ described in the publication **BulkECexplorer: an online resource to survey endothelial bulk transcriptomes and predict functional transcription**. Several files required by the scripts can be found here too. These files are also provided as supplementary files in the publication.  
 The .tab files containing the expression data for the samples that the BulkECexplorer uses are too large to be uploaded to github, but have been provided as supplementary files in the publication.  
 ## scripts folder
 This folder contains three scripts:  
