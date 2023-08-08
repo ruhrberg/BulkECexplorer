@@ -10,6 +10,6 @@ This folder contains four scripts:
 Contains several files required by the aforementioned scripts. These are:  
 -**align_master.csv**: align rate data output by HISAT2, used to filter out samples with low align rates.  
 -**gene_list_all_runs**: gene lists with actual positive/negative markers used in the confusion matrix and false positive rate analyses.  
--**HUVEC_proteome.csv**: - HUVEC proteome data from https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD009687. Used to filter the gene list in the 2nd and 3rd rounds of confusion matrix and false positive rate analyses.  
+-**HUVEC_proteome.csv**: HUVEC proteome data from https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD009687. Used to filter the gene list in the 2nd and 3rd rounds of confusion matrix and false positive rate analyses.  
 -**hprot_coding**: human protein-coding gene list obtained from GRCh38-p13_gencode_annotation.csv (supplementary file in publication).  
 -**mprot_coding**: mouse protein-coding gene list obtained from GRCm38-p6_gencode_annotation.csv (supplementary file in publication).  
