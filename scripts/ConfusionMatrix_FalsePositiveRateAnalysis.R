@@ -17,24 +17,24 @@ unimodal <- c('SRR11234920', 'SRR10066475', 'SRR10066476', 'SRR10066477', 'SRR10
 
 ##### Load data
 # Load data
-CleanBulk <- readRDS('CleanBulk.RDS') %>%   ## Load cleanbulk.RDS containing the gene expression values (TPM and zTPM) found in the BulkECExplorer
+CleanBulk <- readRDS('/home/guille/OneDrive/Ruhrberg_Lab/James/BECexplorer_WIP/CleanBulk.RDS') %>%   ## Load cleanbulk.RDS containing the gene expression values (TPM and zTPM) found in the BulkECExplorer
   mutate(Expressed_1_TPM = if_else(TPM >= 1, 'Expressed', 'Not expressed')) # %>% 
   #mutate(zTPM_threshold = ifelse(run %in% unimodal, NA, zTPM_threshold))
 
-CleanEM <- readRDS('CleanEM.RDS') ## load CleanEM.RDS containing classification data from GMMs included in the BulkExplorer
+CleanEM <- readRDS('/home/guille/OneDrive/Ruhrberg_Lab/James/BECexplorer_WIP/CleanEM.RDS') ## load CleanEM.RDS containing classification data from GMMs included in the BulkExplorer
 
-# First run: all 145 genes. 108 neg, 37 pos
-genes_first_run <- read.csv('gene_list_all_runs.csv') %>%
+# First run: all 146 genes. 109 neg, 37 pos
+genes_first_run <- read.csv('/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/gene_list_all_runs.csv') %>%
   filter(first_run == "Y") %>% 
   dplyr::select(Gene.Name, Type)
 
-# Second run: 145 genes minus those negatives (6 genes) that are present in the huvec proteome file = 139 genes. 102 neg, 37 pos
-genes_second_run <- read.csv('gene_list_all_runs.csv') %>%
+# Second run: 146 genes minus those negatives (6 genes) that are present in the huvec proteome file = 140 genes. 103 neg, 37 pos
+genes_second_run <- read.csv('/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/gene_list_all_runs.csv') %>%
   filter(second_run == "Y") %>% 
   dplyr::select(Gene.Name, Type)
 
 # How those 6 genes were identified:
-# genes_proteome <- read.csv('HUVEC_proteome.csv', sep = ";") %>%  # Load list of genes labelled by type (negative = not thought to be expressed in EC, positive = thought to be expressed in ECs)
+# genes_proteome <- read.csv('/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/HUVEC_proteome.csv', sep = ";") %>%  # Load list of genes labelled by type (negative = not thought to be expressed in EC, positive = thought to be expressed in ECs)
 #   dplyr::filter(!is.na(Protein.evidence)) %>% 
 #   dplyr::filter(!Protein.FDR.Confidence == "Low") %>% 
 #   mutate(Type = "Positive") %>% 
@@ -45,8 +45,8 @@ genes_second_run <- read.csv('gene_list_all_runs.csv') %>%
 #   filter(!(Gene.Name %in% genes_proteome$Gene.Name & Type == "Negative")) %>%  # "MAP2"   "GLUL" "GAD1"  "GAPDHS" "PNPLA2" "TAGLN" removed
 #   dplyr::select(Gene.Name, Type)
 
-# Third run: 140 genes from second run minus neuronal contaminants = 89 genes. 52 neg, 37 pos
-genes_third_run <- read.csv('gene_list_all_runs.csv') %>%
+# Third run: 140 genes from second run minus neuronal contaminants = 86 genes. 49 neg, 37 pos
+genes_third_run <- read.csv('/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/gene_list_all_runs.csv') %>%
   filter(third_run == "Y") %>% 
   dplyr::select(Gene.Name, Type)
   
@@ -183,9 +183,9 @@ runBenchmark <- function(TPM_data, zTPM_data, GMM_data, genes, filePath){
   return(CM_data)
 }
 
-first_run <- runBenchmark(TPM_database, zTPM_database, GMM_database, genes_first_run, "results/FIRST_RUN_RESULTS.csv")
-second_run <- runBenchmark(TPM_database, zTPM_database, GMM_database, genes_second_run, "results/SECOND_RUN_RESULTS.csv")
-third_run <- runBenchmark(TPM_database, zTPM_database, GMM_database, genes_third_run, "results/THIRD_RUN_RESULTS.csv")
+first_run <- runBenchmark(TPM_database, zTPM_database, GMM_database, genes_first_run, "/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/results/FIRST_RUN_RESULTS.csv")
+second_run <- runBenchmark(TPM_database, zTPM_database, GMM_database, genes_second_run, "/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/results/SECOND_RUN_RESULTS.csv")
+third_run <- runBenchmark(TPM_database, zTPM_database, GMM_database, genes_third_run, "/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/results/THIRD_RUN_RESULTS.csv")
 
 # FP analysis. Produces data and plots
 run_FP_analysis <- function(outDir, runResults){
@@ -224,6 +224,7 @@ run_FP_analysis <- function(outDir, runResults){
       spread(!!sym(method_columns[i]), n) %>%
       mutate(sum_samples = Negative_TN + Negative_FP) %>% 
       mutate(FP_proportion = Negative_FP/(Negative_TN+Negative_FP)) %>% 
+      #filter(FP_proportion != 0) %>%  # Optional: remove those without FPs
       mutate(FP_percentage = 100*FP_proportion) %>%
       arrange(FP_percentage) 
     
@@ -565,6 +566,6 @@ run_FP_analysis <- function(outDir, runResults){
   }
 }
 
-run_FP_analysis("results/FP_analysis/FP_analysis_firstRun/", first_run)
-run_FP_analysis("results/FP_analysis/FP_analysis_secondRun/", second_run)
-run_FP_analysis("results/FP_analysis/FP_analysis_thirdRun/", third_run)
+run_FP_analysis("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/results/FP_analysis/FP_analysis_firstRun/", first_run)
+run_FP_analysis("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/results/FP_analysis/FP_analysis_secondRun/", second_run)
+run_FP_analysis("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/results/FP_analysis/FP_analysis_thirdRun/", third_run)

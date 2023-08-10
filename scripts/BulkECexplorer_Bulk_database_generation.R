@@ -29,6 +29,8 @@ mprot_coding  <- as.data.frame(mgtf) %>%
   select(gene_name) %>%
   unique()
 
+
+
 #######################################################################################
 # Make dataframe
 Bulk <- data.frame(Gene.ID = character(0), 
@@ -120,9 +122,8 @@ Bulk <- Bulk %>%
 #######################################################################################
 # Quality Control #1
 
-# Remove samples with CDH5 < 1 & KDR < 1
+# Remove samples with CDH5 < 1 TPM & KDR < 1 TPM
 # Exclusion of Project PRJEB14163 (exclude)
-# Restrict to samples with high-moderate CDH5 and PECAM gene expression (>1zTPM)
 
 exclude <- c('ERR1424945', 'ERR1424946', 'ERR1424947', 'ERR1424948', 'ERR1424949', 'ERR1424950', 'ERR1424951', 
              'ERR1424952', 'ERR1424953', 'ERR1424954', 'ERR1424956', 'ERR1424966', 'ERR1424967', 'ERR1424968', 
@@ -137,18 +138,8 @@ QC <- Bulk %>%
 
 QC <- c(QC, exclude)
 
-zQC <- Bulk %>%
-  filter(Gene.Name %in% c("CDH5", "PECAM1")) %>%
-  filter(zTPM < 1.0) %>% 
-  mutate(run = as.character(run)) %>% 
-  pull(run) %>% 
-  unique()
-
 MegaBulk <- Bulk %>% 
-  filter(!run %in% QC) %>%
-  filter(!run %in% zQC)   
-
-# rm(QC, Bulk, exclude, zQC)
+  filter(!run %in% QC)
 
 #########################################################################################
 # Assigning whether a gene is considered expressed at different TPM thresholds and the zTPM threshold

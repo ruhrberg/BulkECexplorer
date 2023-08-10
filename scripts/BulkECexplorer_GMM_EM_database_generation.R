@@ -23,8 +23,8 @@ library(cowplot)
 # Processing of "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv"
 # into "hprot_coding.csv" and "mprot_coding.csv" can be found in script BulkECexplorer_Bulk_database_generation.R
 
-hprot_coding <- read.csv("hprot_coding.csv")
-mprot_coding <- read.csv("mprot_coding.csv")
+hprot_coding <- read.csv("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/hprot_coding.csv")
+mprot_coding <- read.csv("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/mprot_coding.csv")
 
 
 #######################################################################################
