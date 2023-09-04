@@ -128,6 +128,8 @@ ui <- dashboardPage(
                       to classify genes detected in the datasets as actively expressed or leaky. A leaky classification infers that a gene is unlikely
                       to be functional in ECs [1-3]. Nevertheless, experimental evidence should be considered before concluding that a gene classified 
                       as actively expressed is functional in ECs, and vice versa, whether a gene classified as a leaky gene has no function in ECs.'),
+                    h4("Note: Datasets from freshly isolated mouse endothelial cells contain transcripts of host organ cells that interact with endothelium.
+                    This app does not inform whether these transcripts reflect transcriptional mimicry and/or host cell contamination."),
                       br(),
                     h4('Correspondence: Christiana Ruhrberg at c.ruhrberg@ucl.ac.uk'),
                   )),

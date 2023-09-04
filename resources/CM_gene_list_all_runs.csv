@@ -43,6 +43,7 @@ SPP1,Negative,Y,Y,Y
 RUNX2,Negative,Y,Y,Y
 SP7,Negative,Y,Y,Y
 IBSP,Negative,Y,Y,Y
+TNFRSF11A,Negative,Y,Y,Y
 OSCAR,Negative,Y,Y,Y
 CALCA,Negative,Y,Y,Y
 TNP1,Negative,Y,Y,Y
@@ -71,14 +72,14 @@ CD19,Negative,Y,Y,Y
 CD14,Negative,Y,Y,
 ITGAM,Negative,Y,Y,
 CD163,Negative,Y,Y,
-ITGAX,Negative,Y,Y,Y
+ITGAX,Negative,Y,Y,
 FCGR2B,Negative,Y,Y,
-PTPRC,Negative,Y,Y,Y
+PTPRC,Negative,Y,Y,
 IL5RA,Negative,Y,Y,Y
 CCR3,Negative,Y,Y,Y
-ADGRE1,Negative,Y,Y,Y
+ADGRE1,Negative,Y,Y,
 CD22,Negative,Y,Y,Y
-CD33,Negative,Y,Y,Y
+CD33,Negative,Y,Y,
 GYPA,Negative,Y,Y,Y
 GP9,Negative,Y,Y,Y
 GP1BA,Negative,Y,Y,Y
