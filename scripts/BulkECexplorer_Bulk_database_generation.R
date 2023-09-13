@@ -7,8 +7,6 @@ library(ggthemes)
 
 #######################################################################################
 #### List protein coding transcripts in mouse and human genome
-## Download and import Genome annotation file from Gencode
-
 ## Load Processed Genome annotation files
 
 # Gencode files "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv" have been provided as supplementary files
