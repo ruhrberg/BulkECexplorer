@@ -9,25 +9,34 @@ library(ggthemes)
 #### List protein coding transcripts in mouse and human genome
 ## Download and import Genome annotation file from Gencode
 
+## Load Processed Genome annotation files
+
 # Gencode files "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv" have been provided as supplementary files
 # Processed Gencode files "hprot_coding.csv" and "mprot_coding.csv" have been provided as supplementary files
+# Processing of "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv"
+# into "hprot_coding.csv" and "mprot_coding.csv" can be found in script BulkECexplorer_Bulk_database_generation.R
 
-hgtf <- rtracklayer::import(choose.files())           # import GRCh38-p13_gencode_annotation
-hprot_coding <- as.data.frame(hgtf) %>%
-  select(,c(7, 11, 12)) %>%
-  filter(gene_type == 'protein_coding') %>%
-  filter(type == 'gene') %>% 
-  select(gene_name) %>%
-  unique()
+hprot_coding <- read.csv("hprot_coding.csv")
+mprot_coding <- read.csv("mprot_coding.csv")
+
+# the files were processed as following:
+
+# hgtf <- rtracklayer::import(choose.files())           # import GRCh38-p13_gencode_annotation
+# hprot_coding <- as.data.frame(hgtf) %>%
+#   select(,c(7, 11, 12)) %>%
+#   filter(gene_type == 'protein_coding') %>%
+#   filter(type == 'gene') %>% 
+#   select(gene_name) %>%
+#   unique()
 
 # Murine
-mgtf <- rtracklayer::import(choose.files())           # import GRCm38-p6_gencode_annotation
-mprot_coding  <- as.data.frame(mgtf) %>%
-  select(,c(7, 11, 12)) %>%
-  filter(gene_type == 'protein_coding') %>%
-  filter(type == 'gene') %>% 
-  select(gene_name) %>%
-  unique()
+# mgtf <- rtracklayer::import(choose.files())           # import GRCm38-p6_gencode_annotation
+# mprot_coding  <- as.data.frame(mgtf) %>%
+#   select(,c(7, 11, 12)) %>%
+#   filter(gene_type == 'protein_coding') %>%
+#   filter(type == 'gene') %>% 
+#   select(gene_name) %>%
+#   unique()
 
 
 
