@@ -22,8 +22,8 @@ library(cowplot)
 # files "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv"
 # can be found in the resources folder of this github
 
-hprot_coding <- read.csv("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/hprot_coding.csv")
-mprot_coding <- read.csv("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/mprot_coding.csv")
+hprot_coding <- read.csv("hprot_coding.csv")
+mprot_coding <- read.csv("mprot_coding.csv")
 
 
 #######################################################################################
