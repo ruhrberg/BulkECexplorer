@@ -18,10 +18,9 @@ library(cowplot)
 #### List protein coding transcripts in mouse and human genome
 ## Load Processed Genome annotation files
 
-# Gencode files "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv" have been provided as supplementary files
-# Processed Gencode files "hprot_coding.csv" and "mprot_coding.csv" have been provided as supplementary files
-# Processing of "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv"
-# into "hprot_coding.csv" and "mprot_coding.csv" can be found in script BulkECexplorer_Bulk_database_generation.R
+# Files "hprot_coding.csv" and "mprot_coding.csv" obtained from processing Gencode
+# files "GRCh38-p13_gencode_annotation.csv" and "GRCm38-p6_gencode_annotation.csv"
+# can be found in the resources folder of this github
 
 hprot_coding <- read.csv("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/hprot_coding.csv")
 mprot_coding <- read.csv("/home/guille/OneDrive/Ruhrberg_Lab/James/Guille/GJ_modified_scripts/resources/mprot_coding.csv")
