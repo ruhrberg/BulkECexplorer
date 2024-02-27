@@ -1,3 +1,5 @@
+# BulkECexplorer
+
 {
 library(shiny)
 library(tidyverse)
@@ -917,9 +919,9 @@ server <- function(input, output, session) {
                     paste0(input$GeneSearch %>% toupper(), "_expression_range.png"), 
                     paste0(input$GeneSearch %>% toupper(), "_gmm_classification.png"), 
                     paste0(input$GeneSearch %>% toupper(), "_detection_zTPM_theshold.png"),
-                    paste0(input$GeneSearch %>% toupper(), "_ztpm_expression_range.png"),
-                    paste0(input$GeneSearch %>% toupper(), "_frequency_tpm_threshold.png"),
-                    paste0(input$GeneSearch %>% toupper(), "_expression_range_tpm_threshold.png"))
+                    paste0(input$GeneSearch %>% toupper(), "_zTPM_expression_range.png"),
+                    paste0(input$GeneSearch %>% toupper(), "_frequency_TPM_threshold.png"),
+                    paste0(input$GeneSearch %>% toupper(), "_expression_range_TPM_threshold.png"))
             )
       }
     )
@@ -965,7 +967,7 @@ server <- function(input, output, session) {
         ggsave(paste0(input$GeneSearch %>% toupper(), "_expression_range.pdf"), plot = renderRangePlot(), device = "pdf")
         ggsave(paste0(input$GeneSearch %>% toupper(), "_gmm_classification.pdf"), plot = renderGMMPlot(), device = "pdf")
         ggsave(paste0(input$GeneSearch %>% toupper(), "_detection_zTPM_theshold.pdf"), plot = renderZTPMPlot(), device = "pdf")
-        ggsave(paste0(input$GeneSearch %>% toupper(), "_standardised_expression_range.pdf"), plot = renderZRangePlot(), device = "pdf")
+        ggsave(paste0(input$GeneSearch %>% toupper(), "_zTPM_expression_range.pdf"), plot = renderZRangePlot(), device = "pdf")
         ggsave(paste0(input$GeneSearch %>% toupper(), "_frequency_TPM_threshold.pdf"), plot = renderDetPlotCustom(), device = "pdf")
         ggsave(paste0(input$GeneSearch %>% toupper(), "_expression_range_TPM_threshold.pdf"), plot = renderRangePlotCustom(), device = "pdf")
         
