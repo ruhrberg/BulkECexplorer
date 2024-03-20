@@ -121,6 +121,13 @@ ui <- dashboardPage(
                   br(),
                   br(),
                   box(title = 'Information on the Resource', width = 12, solidHeader = T, status = 'primary',
+                      tags$div(
+                        h4(
+                          "This resource is described in the following publication: ",
+                          tags$a(href = "https://www.nature.com/articles/s44161-024-00436-w",
+                                 "The BulkECexplorer compiles endothelial bulk transcriptomes to predict functional versus leaky transcription")
+                        )
+                      ),
                     h4('The Bulk RNAseq Vascular Endothelial Cell (BulkEC) explorer compiles >200 bulk RNAseq datasets from the European Nucleotide Archive (ENA) 
                       for 5 endothelial cell (EC) subtypes, collected in 2020 as an exhaustive compilation of publicly available datasets meeting 
                       strict inclusion criteria. The EC subtypes included are: human dermal microvascular ECs (HDMECs), human umbilical vein ECs (HUVECs),
@@ -533,6 +540,7 @@ server <- function(input, output, session) {
            theme(text = element_text(size = 20)) +
            theme(axis.text.x = element_text(angle = 30, vjust = 0.9, hjust=1)) +
            scale_color_colorblind() +
+           scale_x_discrete(drop=FALSE) +
            theme(axis.text.x = element_text(color = "black")) +
            theme(axis.text.y = element_text(color = "black")) +
            scale_y_log10(breaks = c(0, 0.01, 0.1, 1, 10, 100, 1000), labels = c(0, 0.01, 0.1, 1, 10, 100, 1000)) +
@@ -627,6 +635,7 @@ server <- function(input, output, session) {
            theme(text = element_text(size = 20)) +
            theme(axis.text.x = element_text(angle = 30, vjust = 0.9, hjust=1)) +
            scale_color_colorblind() +
+           scale_x_discrete(drop=FALSE) +
            theme(axis.text.x = element_text(color = "black")) +
            theme(axis.text.y = element_text(color = "black")) +
            scale_y_log10(breaks = c(0, 0.01, 0.1, 1, 10, 100, 1000), labels = c(0, 0.01, 0.1, 1, 10, 100, 1000)) +
@@ -755,6 +764,7 @@ server <- function(input, output, session) {
         theme(text = element_text(size = 20)) +
         theme(axis.text.x = element_text(angle = 30, vjust = 0.9, hjust=1)) +
         scale_color_colorblind() +
+        scale_x_discrete(drop=FALSE) +
         xlab('') +
         labs(fill = ' ') +
         theme(axis.text.x = element_text(color = "black")) +
